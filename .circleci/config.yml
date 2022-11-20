@@ -17,7 +17,7 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  env_var:
+  env-var:
     docker:
         - image: cimg/base:stable
     steps:
@@ -46,3 +46,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - env-var
