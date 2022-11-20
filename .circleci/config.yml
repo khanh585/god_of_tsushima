@@ -17,6 +17,28 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+  env_var:
+    docker:
+        - image: cimg/base:stable
+    steps:
+      - run:
+          name: "Print an env var stored in a Context"
+          command: echo ${HOST_URL}
+      - run:
+          name: "Print an env var stored in a Context"
+          command: echo ${HOST_URL}
+      - run:
+          name: "Setup custom environment variables"
+          command: echo 'export MY_ENV_VAR="FOO"' >> "$BASH_ENV"
+      - run:
+          name: "What branch am I on now?"
+          command: echo $CIRCLE_BRANCH
+      - run:
+          name: "What branch am I on now?"
+          command: echo $CIRCLE_BRANCH
+      - run:
+          name: "Print an env var stored in the Project"
+          command: echo ${PROJECT_ENV_VAR}
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
